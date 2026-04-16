@@ -42,7 +42,7 @@ class ApiClient {
   String? _baseUrl;
 
   static const List<String> _baseUrlCandidates = <String>[
-    'http://10.0.2.2:5000/api',
+    'http://192.168.10.55:5000/api',
     'http://localhost:5000/api',
     'http://127.0.0.1:5000/api',
   ];
@@ -195,16 +195,17 @@ class TournamentApp extends StatelessWidget {
         useMaterial3: false,
         brightness: Brightness.light,
         scaffoldBackgroundColor: _basqueWhite,
-        colorScheme: ColorScheme.fromSeed(
-          seedColor: _basqueRed,
-          brightness: Brightness.light,
-        ).copyWith(
-          primary: _basqueRed,
-          secondary: _basqueGreen,
-          surface: _basqueWhite,
-          onSurface: _basqueDarkGreen,
-          onPrimary: _basqueWhite,
-        ),
+        colorScheme:
+            ColorScheme.fromSeed(
+              seedColor: _basqueRed,
+              brightness: Brightness.light,
+            ).copyWith(
+              primary: _basqueRed,
+              secondary: _basqueGreen,
+              surface: _basqueWhite,
+              onSurface: _basqueDarkGreen,
+              onPrimary: _basqueWhite,
+            ),
         textTheme: TextTheme(
           headlineLarge: TextStyle(
             color: _basqueDarkGreen,
@@ -273,18 +274,15 @@ class CategorySelectionPage extends StatelessWidget {
               const SizedBox(height: 24),
               Text(
                 'Elige una categoría',
-                style: Theme.of(
-                  context,
-                ).textTheme.headlineMedium,
+                style: Theme.of(context).textTheme.headlineMedium,
               ),
               const SizedBox(height: 10),
               Text(
                 'El torneo se hace entre platos de la misma categoría.',
                 style: Theme.of(context).textTheme.bodyMedium?.copyWith(
-                  color: Theme.of(context)
-                      .colorScheme
-                      .onSurface
-                      .withValues(alpha: 0.7),
+                  color: Theme.of(
+                    context,
+                  ).colorScheme.onSurface.withValues(alpha: 0.7),
                 ),
               ),
               const SizedBox(height: 18),
@@ -376,7 +374,9 @@ class _CategoryCard extends StatelessWidget {
           borderRadius: borderRadius,
           color: Theme.of(context).colorScheme.surface,
           border: Border.all(
-            color: Theme.of(context).colorScheme.onSurface.withValues(alpha: 0.25),
+            color: Theme.of(
+              context,
+            ).colorScheme.onSurface.withValues(alpha: 0.25),
             width: 1.6,
           ),
         ),
@@ -398,9 +398,13 @@ class _CategoryCard extends StatelessWidget {
                 height: 52,
                 decoration: BoxDecoration(
                   shape: BoxShape.circle,
-                  color: Theme.of(context).colorScheme.primary.withValues(alpha: 0.12),
+                  color: Theme.of(
+                    context,
+                  ).colorScheme.primary.withValues(alpha: 0.12),
                   border: Border.all(
-                    color: Theme.of(context).colorScheme.onSurface.withValues(alpha: 0.25),
+                    color: Theme.of(
+                      context,
+                    ).colorScheme.onSurface.withValues(alpha: 0.25),
                   ),
                 ),
                 child: Icon(icon, color: accent),
@@ -590,10 +594,9 @@ class _ErrorView extends StatelessWidget {
               message,
               textAlign: TextAlign.center,
               style: Theme.of(context).textTheme.bodyMedium?.copyWith(
-                color: Theme.of(context)
-                    .colorScheme
-                    .onSurface
-                    .withValues(alpha: 0.85),
+                color: Theme.of(
+                  context,
+                ).colorScheme.onSurface.withValues(alpha: 0.85),
               ),
             ),
           ),
@@ -605,8 +608,7 @@ class _ErrorView extends StatelessWidget {
               onPressed: onRetry,
               style: ElevatedButton.styleFrom(
                 backgroundColor: accent,
-                foregroundColor:
-                    Theme.of(context).colorScheme.onPrimary,
+                foregroundColor: Theme.of(context).colorScheme.onPrimary,
                 shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(14),
                 ),
@@ -879,11 +881,9 @@ class _TopBar extends StatelessWidget {
         Expanded(
           child: Text(
             title,
-            style: Theme.of(
-              context,
-            ).textTheme.titleLarge?.copyWith(
-                  color: Theme.of(context).colorScheme.onSurface,
-                ),
+            style: Theme.of(context).textTheme.titleLarge?.copyWith(
+              color: Theme.of(context).colorScheme.onSurface,
+            ),
             maxLines: 1,
             overflow: TextOverflow.ellipsis,
           ),
@@ -910,10 +910,9 @@ class _VsSeparator extends StatelessWidget {
             child: Container(
               height: 1,
               decoration: BoxDecoration(
-                color: Theme.of(context)
-                    .colorScheme
-                    .onSurface
-                    .withValues(alpha: 0.3),
+                color: Theme.of(
+                  context,
+                ).colorScheme.onSurface.withValues(alpha: 0.3),
               ),
             ),
           ),
@@ -930,10 +929,9 @@ class _VsSeparator extends StatelessWidget {
             child: Container(
               height: 1,
               decoration: BoxDecoration(
-                color: Theme.of(context)
-                    .colorScheme
-                    .onSurface
-                    .withValues(alpha: 0.3),
+                color: Theme.of(
+                  context,
+                ).colorScheme.onSurface.withValues(alpha: 0.3),
               ),
             ),
           ),
@@ -974,7 +972,9 @@ class _GameCard extends StatelessWidget {
             borderRadius: borderRadius,
             color: surface,
             border: Border.all(
-              color: Theme.of(context).colorScheme.onSurface.withValues(alpha: 0.25),
+              color: Theme.of(
+                context,
+              ).colorScheme.onSurface.withValues(alpha: 0.25),
               width: 1.6,
             ),
           ),
@@ -1039,10 +1039,9 @@ class _GameCard extends StatelessWidget {
                     ),
                     decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(16),
-                      color: Theme.of(context)
-                          .colorScheme
-                          .onSurface
-                          .withValues(alpha: 0.06),
+                      color: Theme.of(
+                        context,
+                      ).colorScheme.onSurface.withValues(alpha: 0.06),
                     ),
                     child: Row(
                       children: [
@@ -1117,10 +1116,9 @@ class _WinnerView extends StatelessWidget {
                 color: Theme.of(context).colorScheme.surface,
                 borderRadius: BorderRadius.circular(26),
                 border: Border.all(
-                  color: Theme.of(context)
-                      .colorScheme
-                      .onSurface
-                      .withValues(alpha: 0.25),
+                  color: Theme.of(
+                    context,
+                  ).colorScheme.onSurface.withValues(alpha: 0.25),
                   width: 1.4,
                 ),
               ),
@@ -1168,10 +1166,9 @@ class _WinnerView extends StatelessWidget {
                   Text(
                     '${winnerPrice.toStringAsFixed(2)} €',
                     style: Theme.of(context).textTheme.titleLarge?.copyWith(
-                      color: Theme.of(context)
-                          .colorScheme
-                          .onSurface
-                          .withValues(alpha: 0.75),
+                      color: Theme.of(
+                        context,
+                      ).colorScheme.onSurface.withValues(alpha: 0.75),
                       fontWeight: FontWeight.w900,
                       letterSpacing: 0.8,
                     ),
@@ -1258,14 +1255,12 @@ class _WinnerImage extends StatelessWidget {
                     begin: Alignment.topCenter,
                     end: Alignment.bottomCenter,
                     colors: [
-                      Theme.of(context)
-                          .colorScheme
-                          .onSurface
-                          .withValues(alpha: 0.03),
-                      Theme.of(context)
-                          .colorScheme
-                          .onSurface
-                          .withValues(alpha: 0.12),
+                      Theme.of(
+                        context,
+                      ).colorScheme.onSurface.withValues(alpha: 0.03),
+                      Theme.of(
+                        context,
+                      ).colorScheme.onSurface.withValues(alpha: 0.12),
                     ],
                   ),
                 ),
@@ -1274,10 +1269,9 @@ class _WinnerImage extends StatelessWidget {
             Center(
               child: Icon(
                 Icons.emoji_events,
-                color: Theme.of(context)
-                    .colorScheme
-                    .onSurface
-                    .withValues(alpha: 0.85),
+                color: Theme.of(
+                  context,
+                ).colorScheme.onSurface.withValues(alpha: 0.85),
                 size: 90,
               ),
             ),
